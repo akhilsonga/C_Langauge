@@ -1,0 +1,55 @@
+#include<stdio.h>
+
+int size,a[100],b[100],t;
+
+void insert (int x)
+{
+	int temp=++size;
+	while(temp!=1 && a[temp/2]>x)
+	{
+		a[temp]=a[temp/2];
+		temp=temp/2;
+	}
+	a[temp]=x;
+}
+
+void del()
+{
+	int x,temp,child;
+	x=a[size--];
+	b[t]=a[1];//
+	t++;//
+	temp=1;
+	child=2;
+	while(child<=size)    //
+	{
+		if(child<size && a[child]>a[child+1])
+		child++;
+		if(x<=a[child])
+	    break;
+		a[temp]=a[child];
+		temp=child;
+		child=child*2;
+		
+	}
+ 	a[temp]=x; 
+	
+}
+
+main()
+{
+	int i,n,x;
+	printf("\nenter n");
+	scanf("%d",&n);
+	for(i=1;i<=n;i++)
+	{
+		printf("enter x=");
+		scanf("%d",&x);
+		insert(x);
+	}
+	for(i=1;i<=n;i++)
+	del();
+	
+	for(i=0;i<t;i++)
+	printf("%5d",b[i]);
+} 
