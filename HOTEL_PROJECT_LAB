@@ -1,0 +1,173 @@
+#include <stdio.h>
+
+int  customer( int *a,int *b,int *c,int *d,int *e)
+
+{
+
+    int a1,a2,a3,a4,a5,a6,h,i=0,f;
+
+    *a=a1; *b=a2; *c=a3; *d=a4; *e=a5;
+
+    do
+
+    {
+
+    printf("\t \t \t \n ___MENU___ \n");
+
+    printf(" \t \t \t \n 1) Dosa -25 \n \t \t \t \n 2) IDLY -20 \n \t \t \t \n 3) VADA -25");
+
+    printf("\n \t \t \t \n 4) BONDA -20 \n \t \t \t \n 5) PURI -25 \n\n\n");
+
+    printf(" ENTER YOUR ORDER \n \n \n");
+
+    printf("DOSA   ----  ");
+
+    scanf("%d",&a1);
+
+    printf("\nIDLY ---- ");scanf("%d",&a2);
+
+    printf("\nVADA ---- ");scanf("%d",&a3);
+
+    printf("\nBONDA ---- ");scanf("%d",&a4);
+
+    printf("\nPURI ---- ");scanf("%d",&a5);
+
+    printf("\n\n\n");
+
+    printf(" BILL :  ");
+
+    f=a1*25+a2*20+a3*25+a4*20+a5*25;
+
+            printf("%d \n ",f);
+
+        printf("do you want to make changes?\n 1- yes \n 0-no..! \n");
+
+        scanf("%d",&h);
+
+    }while(h);
+
+    f=a1*25+a2*20+a3*25+a4*20+a5*25;
+
+    printf("%d \n ",f);
+
+    printf(" your order is comming ... \n");
+
+    printf("quantity %d",i);
+
+    
+
+    return f;
+
+}
+
+void chief()
+
+{
+
+    int g,h=1234;
+
+    printf("\n\n\n .............CHIEF............");
+
+    printf("enter your ID number : ");
+
+    scanf("%d",&g);
+
+    if(g==h)
+
+    {
+
+        printf(" \n login sucesssful...\n");
+
+        printf("No. of DOSA ---  \n");
+
+        printf("No. of IDLY ---  \n");
+
+        printf("No. of VADA ---  \n");
+
+        printf("No. of BONDA ---  \n");
+
+        printf("No. of PURI ---  \n");
+
+        
+
+        
+
+    }
+
+}
+
+
+
+  int main()
+
+{
+
+    int x,y,z,w,j1=0,j2=0,j3=0,j4=0,j5=0,j=0;
+
+    printf("\n \n \n \n \n ");
+
+    printf("____________________________________________ \n");
+
+    printf("__________________HOTEL__________________ \n");
+
+    printf("_____________________________________________");
+
+    printf("\n \n \n");
+
+    printf("__________________welcome_________________");
+
+    do{
+
+    printf(" \n \n \n \t \t \t \t ENTER YOUR CHOICE\n ");
+
+    printf(" \t \t \t \t  1 ----- customer \n ");
+
+    printf(" \t \t \t \t  2------ chief \n ");
+
+    printf(" \t \t \t \t  3------ admin \n ");
+
+    
+
+    scanf("%d",&x);
+
+    switch (x) {
+
+        case 1:
+
+           j=customer(j1,j2,j3,j4,j5);
+
+            break;
+
+        case 2:
+
+             chief();
+
+            break;
+
+        case 3:
+
+            //admin();
+
+            break;
+
+        default:
+
+            break;
+
+    }
+
+        printf(" \n do u want to go to interface?? \n 1- yes\n 0- no..!");
+
+        scanf("%d",&w);
+
+        
+
+        
+
+    }while (w) ;
+
+    return 0;
+
+}
+
+
