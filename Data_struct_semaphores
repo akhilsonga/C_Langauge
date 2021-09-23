@@ -1,0 +1,94 @@
+//readers_writers_program!
+#include<stdio.h>
+#include<stdbool.h>
+struct semaphore
+{
+int mutex,rcount,rwait,wrt;
+};
+void addr(struct semaphore *s)
+{
+if(s->mutex==0 && s->rcount==0)
+{
+printf("\n sorry \n>_ file open in write mode \n");
+s->rwait++;
+}
+else{
+printf("\n Render procedure added \n");
+s->rcount++;
+s->mutex--;
+}
+
+}
+void addw(struct semaphore *s)
+{
+if(s->mutex==1)
+{
+s->mutex--;
+s->wrt=1;
+printf("writer process added \n");
+}
+else if(s->wrt)
+printf("Sorry!\n>_< file opened in read mode \n");
+}
+void remr(struct semaphore *s)
+{
+if(s->rcount==0)
+printf("No reader present \n");
+else{
+printf("Reader removed \n");
+s->rcount--;
+s->mutex++;
+}
+}
+
+void remw(struct semaphore *s)
+{
+if(s->wrt==0)
+{
+printf("\nNo writers present \n");
+}
+else{
+printf("\n Writer removed \n");
+s->mutex++;
+s->wrt=0;
+if(s->rwait!=0)
+{
+s->mutex=s->rwait;
+s->rcount=s->rwait;
+s->rwait=0;
+printf("\n%d writing reader(S) added \n",s->rcount);
+}
+}
+}
+main()
+{
+struct semaphore s={1,0,0};
+while(1)
+{ 
+printf("\n1-Add reader \n2-Add writer\n3-Remove reader \n4-Remove writer \n5-Exit \n ");
+int ch;
+printf("\n enter your choice \n");
+scanf("%d",&ch);
+switch(ch)
+{
+case 1:addr(&s);
+break;
+
+case 2:addw(&s);
+break;
+
+case 3:remr(&s);
+break;
+
+case 4:remw(&s);
+break;
+
+case 5:exit(0);
+break;
+
+}
+printf("\n\nCurrent Status \n");
+printf("mutex \t\t:\t%d\nActive Reader\t:\t%d\nActive writer \t:\t%d \n \n",s.mutex,s.rcount,s.wrt);
+(s.mutex==0&&s.rcount==0)?"yes!":"No!";
+}
+}
